@@ -19,9 +19,9 @@ const questions = [
     question: "What is the largest desert in the world?",
     answers: [
       { text: "kalahari", correct: false },
-      { text: "gobi", correct: true },
+      { text: "gobi", correct: false },
       { text: "sahara", correct: false },
-      { text: "antarctica", correct: false }
+      { text: "antarctica", correct: true }
     ]
   }, {
     question: "What is the smallest country in the world?",
@@ -80,9 +80,41 @@ function selectAnswer(e) {
 
   if (isCorrect) {
     selectedButton.classList.add('correct');
+    score++;
   } else {
     selectedButton.classList.add('incorrect');
   }
+  Array.from(answerButtonsElement.children).forEach((button) => {
+    if (button.dataset.correct) {
+      button.classList.add('correct');
+    }
+    button.disabled = true;
+  });
+  nextButtonElement.style.display = 'block'; 
 }
+
+function showScore() {
+  resetState();
+  questionElement.innerHTML = `Score: ${score} / ${questions.length}`;
+  nextButtonElement.innerHTML = 'Play Again';
+  nextButtonElement.style.display = 'block';
+}
+
+function handleNextButton() {
+  currentQuestionIndex++;
+  if (currentQuestionIndex < questions.length) {
+    showQuestion();
+  } else {
+    showScore();
+  }
+}
+
+nextButtonElement.addEventListener('click', () => {
+  if (currentQuestionIndex < questions.length) {
+    handleNextButton();
+  } else {
+    startQuiz();
+  }
+});
 
 startQuiz();
