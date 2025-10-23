@@ -4,13 +4,27 @@
     <meta charset="UTF-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content="Quiz App"/>
 
     <link href="./styles/general.css" rel="stylesheet"/>
+    <link href="./styles/quiz.css" rel="stylesheet"/>
 
     <title>Quiz App</title>
   </head>
   <body>
-
+    <div class="app">
+      <h1>Simple Quiz</h1>
+      <div class="quiz">
+        <h2 id="question">Question goes here</h2>
+        <div id="answer-buttons">
+          <button class="answer-button">Answer 1</button>
+          <button class="answer-button">Answer 2</button>
+          <button class="answer-button">Answer 3</button>
+          <button class="answer-button">Answer 4</button>
+        </div>
+        <button id="next-button">Next</button>
+      </div>
+    </div>
     <script src="scripts/general.js"></script>
   </body>
 </html>
