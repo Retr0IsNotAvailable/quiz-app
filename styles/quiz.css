@@ -40,3 +40,11 @@
   cursor: pointer;
   border: 1px solid #001e4d;
 }
+
+.correct {
+  background: #1aeabc;
+}
+
+.incorrect {
+  background: #ff9393;
+} 
